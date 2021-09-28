@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/farazitest/continuous-integration/issues"
   },
-  "homepage": "https://github.com/farazitest/continuous-integration#readme"
+  "homepage": "https://github.com/farazitest/continuous-integration#readme",
+  "dependencies": {
+    "codeceptjs": "^3.1.2"
+  }
 }

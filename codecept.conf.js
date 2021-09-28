@@ -2,7 +2,7 @@ exports.config = {
   tests: 'tests/*_test.js',
   output: './output',
   helpers: {
-    WebDriver: {
+    Puppeteer: {
       url: 'http://dokan.test/',
       browser: 'chrome'
     }
