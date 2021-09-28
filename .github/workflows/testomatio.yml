@@ -16,6 +16,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: |
+        npm install
+        npm install codeceptjs
+        npm install puppeteer
         npx codeceptjs run --steps
     env:
       TESTOMATIO: "${{ github.event.inputs.testomatio }}"
