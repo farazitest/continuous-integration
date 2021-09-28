@@ -1,22 +1,27 @@
 name: Testomatio Tests
+on: [push, pull_request]
 
-on:
-  workflow_dispatch:
-    inputs:
-      grep:
-        description: 'tests to grep '
-        required: false
-        default: ''
-      run:
-        required: false
-      testomatio:
-        required: false
-    - run: |
-        npm init -y
-        npm install
-        npm install codeceptjs
-        npm install puppeteer
-        run: npx codeceptjs run --grep "${{ github.event.inputs.grep }}"
-    env:
-      TESTOMATIO: "${{ github.event.inputs.testomatio }}"
-      TESTOMATIO_RUN: "${{ github.event.inputs.run }}"
+jobs:
+    build:
+
+      runs-on: ubuntu-latest
+
+      strategy:
+        matrix:
+          node-version: [13.x]
+
+      steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: |
+          npm init -y
+          npm install
+          npm install codeceptjs
+          npm install puppeteer
+          run: npx codeceptjs run --grep "${{ github.event.inputs.grep }}"
+      env:
+        TESTOMATIO: "${{ github.event.inputs.testomatio }}"
+        TESTOMATIO_RUN: "${{ github.event.inputs.run }}"
