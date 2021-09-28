@@ -18,8 +18,8 @@ jobs:
     - run: |
         npm install
         npm install codeceptjs
-        codeceptjs init
         npm install puppeteer
+        codeceptjs init
         npx codeceptjs run --steps
     env:
       TESTOMATIO: "${{ github.event.inputs.testomatio }}"
