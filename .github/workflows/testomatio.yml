@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: |
-        npx codeceptjs run --grep "${{ github.event.inputs.grep }}"
+        npx codeceptjs run --steps
     env:
       TESTOMATIO: "${{ github.event.inputs.testomatio }}"
       TESTOMATIO_RUN: "${{ github.event.inputs.run }}"
