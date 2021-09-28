@@ -3,7 +3,7 @@ exports.config = {
   output: './output',
   helpers: {
     Puppeteer: {
-      url: 'http://dokan.test/',
+      url: 'https://dokan.ajaira.website/',
       browser: 'chrome'
     }
   },
